@@ -15,6 +15,8 @@ import v1Routers from '@/routes/v1';
 
 const app = express();
 
+app.use(express.json());
+
 // Enable JSON Reqest Body Parsing
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,7 +33,6 @@ app.use(
 // Apply Rate Limiting middleware
 app.use(limiter);
 
-// Configure Cors Options
 const corsOptions: CorsOptions = {
   origin(origin, callback) {
     if (
@@ -52,6 +53,8 @@ const corsOptions: CorsOptions = {
 
 // Apply Cors Middleware
 app.use(cors(corsOptions));
+
+// Configure Cors Options
 
 // Immediatly Invoked Async Fuction Expression (IIFE) to start the server
 
