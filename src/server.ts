@@ -9,6 +9,7 @@ import helmet from 'helmet';
 import config from '@/config';
 import limiter from '@/lib/express-rate-limit';
 import v1Routers from '@/routes/v1';
+import { connectToDatabase, disconnectFromDatabase } from '@/lib/mongoose';
 
 const app = express();
 
@@ -54,6 +55,7 @@ app.use(cors(corsOptions));
 
 (async () => {
   try {
+    await connectToDatabase();
     app.use('/api/v1', v1Routers);
     app.listen(config.PORT, () => {
       console.log(`Server Running on Port http://localhost:${config.PORT}`);
@@ -79,6 +81,7 @@ Exits the process with status code 0 (indicating a successful shutdown)
 
 const handleServerShutdown = async () => {
   try {
+    await disconnectFromDatabase();
     console.log('Server SHUTDOWN');
     process.exit(0);
   } catch (error) {
