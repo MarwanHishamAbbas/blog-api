@@ -1,13 +1,13 @@
-import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
+import { Schema, model } from 'mongoose';
 
 export interface IUser {
   username: string;
   email: string;
   password: string;
   role: 'admin' | 'user';
-  firstname?: string;
-  lastname?: string;
+  firstName?: string;
+  lastName?: string;
   socialLinks?: {
     website?: string;
     facebook?: string;

@@ -1,12 +1,10 @@
 /* 
     Node Modules
 */
-
 import dotenv from 'dotenv';
+import type ms from 'ms';
 
 dotenv.config();
-
-import type ms from 'ms';
 
 const config = {
   PORT: process.env.PORT || 3000,
@@ -19,6 +17,8 @@ const config = {
   ACCESS_TOKEN_EXPIRY: process.env.ACCESS_TOKEN_EXPIRY! as ms.StringValue,
   REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY! as ms.StringValue,
   WHITELIST_ADMIN_MAILS: ['marwanhisham29@gmail.com'],
+  DEFAULT_RES_LIMIT: 20,
+  DEFAULT_RES_OFFSET: 0,
 };
 
 export default config;

@@ -1,15 +1,14 @@
 /*  Node Modules */
 import express from 'express';
-import cors, { CorsOptions } from 'cors';
-import cookieParser from 'cookie-parser';
-import compression from 'compression';
-import helmet from 'helmet';
 
-/*  Custom Modules */
 import config from '@/config';
 import limiter from '@/lib/express-rate-limit';
 import { connectToDatabase, disconnectFromDatabase } from '@/lib/mongoose';
 import { logger } from '@/lib/winston';
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+import cors, { CorsOptions } from 'cors';
+import helmet from 'helmet';
 
 import v1Routers from '@/routes/v1';
 

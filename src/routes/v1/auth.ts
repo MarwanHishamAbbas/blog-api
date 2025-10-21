@@ -1,18 +1,16 @@
 import { Router } from 'express';
-import { body, cookie } from 'express-validator';
+
 import bcrypt from 'bcrypt';
+import { body, cookie } from 'express-validator';
 
-/* Controllers */
-import register from '@/controllers/register';
 import login from '@/controllers/login';
-import refreshToken from '@/controllers/refresh-token';
 import logout from '@/controllers/logout';
+import refreshToken from '@/controllers/refresh-token';
+import register from '@/controllers/register';
 
-/* Middlewares */
-import validationError from '@/middleware/validationError';
-import authenticate from '@/middleware/authenticate';
+import authenticate from '@/middlewares/authenticate';
+import validationError from '@/middlewares/validationError';
 
-/* Models */
 import User from '@/models/user';
 
 const router = Router();

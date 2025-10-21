@@ -1,8 +1,8 @@
+import type { NextFunction, Request, Response } from 'express';
+
 import { verifyAccessToken } from '@/lib/jwt';
 import { logger } from '@/lib/winston';
 import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
-
-import type { Request, Response, NextFunction } from 'express';
 import { Types } from 'mongoose';
 
 /**
