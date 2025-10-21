@@ -3,8 +3,10 @@ import { Router } from 'express';
 import { body, param, query } from 'express-validator';
 
 import deleteCurrentUser from '@/controllers/delete-current-user';
+import deleteUserById from '@/controllers/delete-user';
 import getAllUsers from '@/controllers/get-all-users';
 import getCurrentUser from '@/controllers/get-current-user';
+import getUserById from '@/controllers/get-user';
 import updateCurrentUser from '@/controllers/update-current-user';
 
 import authenticate from '@/middlewares/authenticate';
@@ -62,6 +64,24 @@ router.get(
     .withMessage('Offset must be a positive integer'),
   validationError,
   getAllUsers,
+);
+
+router.get(
+  '/:userId',
+  authenticate,
+  authorize(['admin']),
+  param('userId').notEmpty().isMongoId().withMessage('Invalid user ID'),
+  validationError,
+  getUserById,
+);
+
+router.delete(
+  '/:userId',
+  authenticate,
+  authorize(['admin']),
+  param('userId').notEmpty().isMongoId().withMessage('Invalid user ID'),
+  validationError,
+  deleteUserById,
 );
 
 export default router;
