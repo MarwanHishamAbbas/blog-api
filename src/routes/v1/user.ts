@@ -2,16 +2,16 @@ import { Router } from 'express';
 
 import { body, param, query } from 'express-validator';
 
-import deleteCurrentUser from '@/controllers/delete-current-user';
-import deleteUserById from '@/controllers/delete-user';
-import getAllUsers from '@/controllers/get-all-users';
-import getCurrentUser from '@/controllers/get-current-user';
-import getUserById from '@/controllers/get-user';
-import updateCurrentUser from '@/controllers/update-current-user';
+import deleteCurrentUser from '@/controllers/auth/delete-current-user';
+import deleteUserById from '@/controllers/auth/delete-user';
+import getAllUsers from '@/controllers/auth/get-all-users';
+import getCurrentUser from '@/controllers/auth/get-current-user';
+import getUserById from '@/controllers/auth/get-user';
+import updateCurrentUser from '@/controllers/auth/update-current-user';
 
 import authenticate from '@/middlewares/authenticate';
 import authorize from '@/middlewares/authorize';
-import validationError from '@/middlewares/validationError';
+import validationError from '@/middlewares/validation-error';
 
 import User from '@/models/user';
 

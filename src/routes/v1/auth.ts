@@ -3,13 +3,13 @@ import { Router } from 'express';
 import bcrypt from 'bcrypt';
 import { body, cookie } from 'express-validator';
 
-import login from '@/controllers/login';
-import logout from '@/controllers/logout';
-import refreshToken from '@/controllers/refresh-token';
-import register from '@/controllers/register';
+import login from '@/controllers/auth/login';
+import logout from '@/controllers/auth/logout';
+import refreshToken from '@/controllers/auth/refresh-token';
+import register from '@/controllers/auth/register';
 
 import authenticate from '@/middlewares/authenticate';
-import validationError from '@/middlewares/validationError';
+import validationError from '@/middlewares/validation-error';
 
 import User from '@/models/user';
 

@@ -1,23 +1,26 @@
- {
-    "semi": true,
-    "singleQuote": true,
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "always",
-    "endOfLine": "lf",
-    "plugins": ["@trivago/prettier-plugin-sort-imports"],
-      "importOrder": [
-         "^express$",
-         "<THIRD_PARTY_MODULES>",
-         "^./routes/(.*)$",
-         "^./controllers/(.*)$",
-         "^./middlewares/(.*)$",
-         "^./models/(.*)$",
-          "^[./]" 
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^express$",
+    "<THIRD_PARTY_MODULES>",
+    "^./routes/(.*)$",
+    "^./controllers/(.*)$",
+    "^./middlewares/(.*)$",
+    "^./models/(.*)$",
+    "^[./]",
+    "<TYPES>",
+    "<TYPES>^[./]"
   ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
- }
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "decorators-legacy"]
+}
